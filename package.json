@@ -23,7 +23,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:dev": "env-cmd -f .env.development react-scripts build",
+    "build:prod": "env-cmd -f .env.production react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,10 +47,40 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)",
+      "!**/build/**",
+      "!**/node_modules/**",
+      "!**/src/index.tsx",
+      "!**/src/setupTests.ts",
+      "!**/src/__tests__/server/**",
+      "!**/src/__tests__/testUtils.tsx"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/**",
+      "!<rootDir>/src/index.tsx",
+      "!<rootDir>/src/reportWebVitals.ts",
+      "!<rootDir>/src/__tests__/server/**",
+      "!<rootDir>/src/__tests__/testUtils.tsx"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
   "resolutions": {
     "styled-components": "^5"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "env-cmd": "^10.1.0",
+    "msw": "^1.1.0"
   }
 }

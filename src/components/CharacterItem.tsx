@@ -21,7 +21,7 @@ const CharacterItem = ({character, setModalOpen}: Props) => {
     }
 
     return (
-        <Container onClick={handleSeeMore}>
+        <Container onClick={handleSeeMore} title={`Click to see more details on ${character.name}...`}>
             <Img src={character.image} alt={character.name} />
             <DescriptionWrapper>
                 <Title>{character.name}</Title>    
@@ -37,7 +37,7 @@ const CharacterItem = ({character, setModalOpen}: Props) => {
                 <EspisodesContainer>
                     <EpisodesList 
                         label="Appeared"
-                        additionalKey={character.name}
+                        additionalKey={`${character.id}`}
                         listEpisodes={[character.episode[0]]}
                         onlyEpisode={true} 
                     />
@@ -57,6 +57,7 @@ const Container = styled.div`
   min-width: 320px;
   border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
 `;
 
 const Img = styled.img`

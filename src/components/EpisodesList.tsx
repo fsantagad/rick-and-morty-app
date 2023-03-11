@@ -21,9 +21,9 @@ const EpisodesList = ({label, listEpisodes, onlyEpisode, useTable, additionalKey
                 <Table>
                     <Thead>
                         <tr>
-                            <td>episode</td>
-                            <td>on air</td>
-                            <td>name</td>
+                            <th>Episode</th>
+                            <th>On air</th>
+                            <th>Name</th>
                         </tr>
                     </Thead>
                     <tbody>
@@ -39,10 +39,15 @@ const EpisodesList = ({label, listEpisodes, onlyEpisode, useTable, additionalKey
             {!useTable && listEpisodes.map((episodeUrl, index) => {
                     const episodeId =  getLastSegment(episodeUrl);
                     const comma = <>, &nbsp;</>;
-
-                    return <>
-                        <EpisodeItem key={`${additionalKey}_${episodeId}`} episodeId={episodeId} onlyEpisode={onlyEpisode} />{index < listEpisodes.length-1 && comma} 
-                    </>  
+                    
+                    return (
+                        <div key={`${additionalKey}_${episodeId}`} >
+                            <EpisodeItem 
+                                episodeId={episodeId} 
+                                onlyEpisode={onlyEpisode} 
+                            />{index < listEpisodes.length-1 && comma} 
+                        </div>
+                    )
                 })
             }
         </>
@@ -62,15 +67,23 @@ const Table = styled.table`
         background-color: #f2f2f2;
         color: ${({ theme }) => theme.textOddRow};
     }
+    
     @media (max-width: 767px) {
         border-spacing: 2px;
       }
 `;
 
 const Thead = styled.thead`
-    tr > td {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    
+    tr {
+        background: ${({ theme }) => theme.body};
+    }
+
+    tr > th {
         border-bottom: 1px solid gray;
-        font-weight: bold;
     }
 `;
 

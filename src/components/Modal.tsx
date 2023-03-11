@@ -60,15 +60,18 @@ const WrapperModal = styled.div`
     width:100vw;
     background: rgba(0,0,0,0.5);
 `;
-const Container = styled.div`
+const Container = styled.div<{
+    width?: number
+    height?: number
+  }>`
     position: relative;
     top: 50%;
     left: 50%;
     height: 80vh;
     width: 80vw;
+    max-width: 1200px;
     background: ${({ theme }) => theme.body};
-    margin-left: calc(-40vw - 10px);
-    margin-top: calc(-40vh - 10px);
+    transform: translate(-50%, -50%);
     padding: 10px;
     border-radius: 6px;
 `;

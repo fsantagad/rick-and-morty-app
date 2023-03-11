@@ -2,10 +2,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {Character} from '../types/Character';
 import {PaginationInfo} from '../types/PaginationInfo';
 
+const baseUrl = process.env.REACT_APP_API_BASEURL;
+
 const charactersApi = createApi({
     reducerPath: 'characters',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://rickandmortyapi.com/'
+      baseUrl
     }),
     endpoints: (builder) => ({
         getCharacters: builder.query<Array<Character>, string>({

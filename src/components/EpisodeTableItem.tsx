@@ -18,13 +18,13 @@ const EpisodeTableItem = ({episodeId}: Props) => {
             </td>
             <TD>
                 <Skeleton width={100} />
-            </TD>   
+            </TD>
             <td>
                 <Skeleton width={150} />
-            </td> 
+            </td>
         </tr>;
     } else if (error) {
-        content=<div>{JSON.stringify(error)}</div>
+        content=<tr><td colSpan={3}>{JSON.stringify(error)}</td></tr>
     } else {
         content = <tr>
             <td>
@@ -32,10 +32,10 @@ const EpisodeTableItem = ({episodeId}: Props) => {
             </td>
             <TD>
                 {data?.air_date}
-            </TD>   
+            </TD>
             <td>
-                {data?.name} 
-            </td> 
+                {data?.name}
+            </td>
         </tr>
     }
 

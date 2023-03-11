@@ -6,24 +6,24 @@ type Props = {
     amount: number
 }
 
-const CardSkeleton = ({ amount }: Props) => {
+const CharacterItemSkeleton = ({ amount }: Props) => {
     const loadCards = Array(amount).fill(1);
-    
+
     return (
         <>
         {
             loadCards.map((_, i) => (
-                <Container key={i}>
+                <Container key={i} data-testid={`container`}>
                     <ImgContainer>
                         <Skeleton height={150}/>
                     </ImgContainer>
                     <DescriptionWrapper>
                         <Skeleton width={250}/>
-                        <Skeleton width={250}/> 
                         <Skeleton width={250}/>
-                        <Skeleton width={250}/> 
-                        <Skeleton width={250}/> 
-                        <Skeleton width={250}/> 
+                        <Skeleton width={250}/>
+                        <Skeleton width={250}/>
+                        <Skeleton width={250}/>
+                        <Skeleton width={250}/>
                     </DescriptionWrapper>
                 </Container>
             ))
@@ -63,4 +63,4 @@ const DescriptionWrapper = styled.div`
   width: 50%;
 `;
 
-export default CardSkeleton;
+export default CharacterItemSkeleton;
