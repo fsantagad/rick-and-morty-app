@@ -1,7 +1,7 @@
 # Rick and Morty app
 Simple React App with typescript that uses api based on one of my favourites series to show a list of characters.
 
-Run with classic  `npm run start`
+Run on local machine with classic  `npm run start` . More info below.
 
 
 # Getting Started with Create React App
