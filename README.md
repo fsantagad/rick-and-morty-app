@@ -1,3 +1,9 @@
+# Rick and Morty app
+Simple React App wuth typescript that uses api based on one of my favourites series to show a list of characters.
+
+Run with classic  `npm run start`
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
